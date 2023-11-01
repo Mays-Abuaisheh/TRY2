@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e7d4d4;
+    background-size: cover;
     margin: 0;
     padding: 0;
+    background-image: url('./Screenshot_2019-10-21_14.57.08_edf0eb9d-6443-45a5-87ae-45636fc24838_1200x1200.webp');
 }
 
 #submit{background-color: #e7d4d4;}
@@ -10,9 +11,9 @@ body {
 .cv-container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #f9dbdb;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(233, 231, 231, 0.912);
 }
 
 h1, h2, h3 {
@@ -20,7 +21,7 @@ h1, h2, h3 {
 }
 
 .personal-details {
-    text-align: center; background-color: rgb(218, 215, 215);
+    text-align: center; background-color: rgb(204, 202, 202);
 }
 
 .professional-summary, .work-experience, .education, .skills, .certifications {
@@ -35,6 +36,13 @@ ul {
     list-style: none;
     padding: 0;
 }
+#mybutton {
+    border: none; 
+    background-color: transparent; 
+    color: purple; 
+    cursor: pointer;
+font-size: x-large;
+display: none; }
 
 /* CSS Grid for responsive layout */
 

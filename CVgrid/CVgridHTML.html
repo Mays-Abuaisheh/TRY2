@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
     <title>Mays Qraideh Abu Aisheh - CV</title>
     <link rel="stylesheet" type="text/css" href="CVgridCSS.css">
-    <link rel="icon"  href=".\6588143.png">
+    <link rel="icon"  href="./6588143.png">
 </head>
 <body>
+    <!-- 
+    <div class="menu-bar">
+        <ul>
+            <li><a href="index.html">1</a></li>
+            <li><a href="newpage.html">2</a></li>  Link to the new page 
+             Add more menu items as needed 
+        </ul>
+    </div> -->    
     <div class="cv-container">
         <div class="personal-details">
             <h1>Mays Ismail Khalil "Qraideh Abu Aisheh"</h1>
@@ -16,14 +23,15 @@
             <form action=".\360_F_291522205_XkrmS421FjSGTMRdTrqFZPxDY19VxpmL.jpg">
                 <input type="radio" id="like1" name="like1" value="I like it">
                 <label for="like1"> I like your CV!</label><br>
-                <input type="radio" id="like2" name="like2" value="like2">
+                <input type="radio" id="like2" name="like1" value="like2">
                 <label for="like2"> I neither like it nor dislike it.</label><br>
-                <input type="radio" id="like3" name="like3" value="like3">
+                <input type="radio" id="like3" name="like1" value="like3">
                 <label for="like3"> I dislike it </label><br><br>
                 <input type="submit" id="submit" value="Submit">
                 
-              </form>
-              
+              </form><br>
+              <button id="darkModeButton">  Dark Mode  </button>
+
         </div>
         <div class="professional-summary">
             <h2>Professional Summary:</h2>
@@ -47,12 +55,12 @@
             <p>University of Petra, Sep. 2023</p>
         </div>
         <div class="skills">
-            <h2>Skills:</h2>
+            <h2 id="skills">Skills: <button id = 'mybutton';>#</button></h2>
             <ul>
                 <li>Languages: Arabic(Native), English(Fluent), Turkish(Basics).</li> <br>
                 <li>HTML5, CSS3</li> <br>
                 <li>Microsoft: Excel, Powerpoint, Word, Access, PowerBI.</li> <br>
-                <li>Coding Languages: Python, VBA, SQL.</li> <br>
+                <li>Coding Languages: Python, VBA, SQL, JavaScript.</li> <br>
                 <li>RapidMiner.</li> <br>
                 <li>DSS: Arena. </li> <br>
                 <li>Creating websites via Wordpress.</li>
@@ -62,6 +70,8 @@
             <h2>Certifications & Courses:</h2>
             <ul>
                 <li>HTML Basics Certification (SoloLearn)</li><br>
+                <li>JS Basics Certification (SoloLearn)</li><br>
+                <li>JS Intermediate Certification (SoloLearn)</li><br>
                 <li>Business Intelligence training course Certifiction</li><br>
                 <li>StartCUP competition contribution Certification</li><br>
                 <Li> English Courses at the British Council</Li><br>
@@ -69,5 +79,50 @@
             </ul>
         </div>
     </div>
+    <script>
+        //dark mode
+const cvContainer = document.querySelector('.cv-container');
+const body = document.body;
+const elementsToStyle = ['h1', 'h2', 'h3', 'p', 'li', 'button', 'a'];
+let isDarkMode = false;
+
+const applyStyles = (styles) => {
+    cvContainer.style.backgroundColor = styles.backgroundColor;
+    body.style.backgroundColor = styles.bodyBackgroundColor;
+    elementsToStyle.forEach(type => document.querySelectorAll(type).forEach(e => {
+        e.style.color = styles.textColor;
+        if (type === 'button') e.style.backgroundColor = styles.buttonBackgroundColor;
+    }));
+    isDarkMode = styles.isDarkMode;
+};
+
+const toggleMode = () => {
+    const styles = {
+        backgroundColor: isDarkMode ? '' : 'grey',
+        /*bodyBackgroundImage: isDarkMode ? '' : 'remove',*/
+        bodyBackgroundImage: isDarkMode ? '' : 'black',
+        textColor: isDarkMode ? '' : 'white',
+        buttonBackgroundColor: isDarkMode ? '' : 'grey',
+        isDarkMode: !isDarkMode
+    };
+    applyStyles(styles);
+};
+
+const darkModeButton = document.getElementById('darkModeButton');
+darkModeButton.addEventListener('click', toggleMode);
+//skills #
+const skillsSection = document.querySelector('.skills');
+const skillsButton = document.getElementById('mybutton');
+skillsSection.addEventListener('mouseover', () => skillsButton.style.display = 'inline');
+skillsSection.addEventListener('mouseout', () => skillsButton.style.display = 'none');
+
+const mine = document.getElementById('mybutton');
+mine.addEventListener('click', () => {
+    const skillsList = document.querySelector('.skills ul');
+    const skillItems = skillsList.getElementsByTagName('li');
+    alert(`Number of Skills: ${skillItems.length}`);
+});
+
+</script>
 </body>
 </html>
